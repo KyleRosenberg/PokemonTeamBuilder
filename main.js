@@ -23,12 +23,14 @@ $.ajax({
 	        					r = result[i];
 	        					var imagelink = r.sprites.front_default;
             					html  += '<a class="result"><div class="content">';
-            					html += '<img src=' + imagelink + '></img>';
+            					html += '<div class="ui fluid circular image" ><img src=' + imagelink + '></div>';
             					html += '<div class="title">' + r.name.charAt(0).toUpperCase() + r.name.slice(1) + '</div>';
             					html  += '' + '</div></a>';
             				}
         				});
         				$('.ui.search div.results').html(html);
+        				$('.ui.search div.results').addClass('visible').addClass('transition').removeClass('hidden');
+        				return true;
      				}
       				return false;
     			},
