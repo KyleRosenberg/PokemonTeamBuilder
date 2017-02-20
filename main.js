@@ -23,7 +23,7 @@ function removeFromTeam(name){
    			$element = $('.team tr:eq(' + (i+1) + ') td:eq(0)');
    			if (i<team.length){
    				$element.html('<div class="content"><div class="ui mini image"><img style="max-width:100%" src=' + team[i].sprites.front_default + '></div><div class="title" style="text-align:center"><button class="ui button">' + team[i].species.name.charAt(0).toUpperCase() + team[i].species.name.slice(1) + '<i class="remove icon centered"></i></button></div></div>');
-   				resist = getResistances(team[team.length-1]);
+   				resist = getResistances(team[i]);
    				for (var j = 0; j<18; j++){
    					var t = TypeIndex[j].toLowerCase();
    					$number = $('.team tr:eq(' + (i+1) + ') td:eq(' + (j+1) + ')');
@@ -42,6 +42,8 @@ function removeFromTeam(name){
    							$number.css('background-color', '#00cc00'); 
    						} else if (resist[t] == 0){
    							$number.css('background-color', '#00ff00'); 
+   						} else if (resist[t] == 1){
+   							$number.css('background-color', '#ffffff');	
    						}
    					}
    				}
